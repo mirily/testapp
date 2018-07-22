@@ -1,0 +1,55 @@
+{
+  "fields": [
+    {
+      "id": "lastname",
+      "title": "Last name",
+      "type": "text",
+      "validators": [
+        {
+          "pattern": "/^([A-Z][A-Za-z ,.'`-]{3,30})$/g"
+        }
+      ]
+    },
+    {
+      "id": "firstname",
+      "title": "First name",
+      "type": "text",
+      "validators": [
+        {
+          "pattern": "/^([A-Z][A-Za-z ,.'`-]{3,30})$/g"
+        }
+      ]
+    },
+    {
+      "id": "email",
+      "title": "E-mail",
+      "type": "email",
+      "validators": [
+        {
+          "pattern": "/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i"
+        }
+      ]
+    },
+    {
+      "id": "phone",
+      "title": "Phone",
+      "type": "phone",
+      "validators": []
+    },
+    {
+      "id": "paymentmethod",
+      "title": "Payment method",
+      "type": "select",
+      "items": [
+        {
+          "title": "MasterCard",
+          "id": 0
+        },
+        {
+          "title": "Visa",
+          "id": 1
+        }
+      ]
+    },
+  ]
+}
