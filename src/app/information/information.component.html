@@ -1,13 +1,26 @@
 <p class="title">
   Let's finish powering you up!
 </p>
-<form class="info-form">
+<form class="info-form" 
+  *ngIf="info_form" 
+  [formGroup]="info_form" 
+  (ngSubmit)="onSubmit(info_form.value)">
+
   <div class="input" *ngFor="let field of formFields" [class.select]="field.type === 'select'">
-    <label>{{field.title}}</label>
-    <input [type]="field.type" [id]="field.id" [readonly]="field.type === 'select'">
-    <div *ngIf="field.items" class="select-options">
-      <p *ngFor="let item of field.items">{{item.title}}</p>
-    </div>
+    <input *ngIf="field.type !== 'select'" 
+      [type]="field.type" 
+      [id]="field.id" 
+      [readonly]="field.type === 'select'" 
+      [formControlName]="field.id">
+    <select 
+      *ngIf="field.type === 'select'" 
+      class="select" 
+      [formControlName]="field.id">
+      <option *ngFor="let item of field.items" [value]="item.id">{{item.title}}</option>
+    </select>
+    <span class="error">{{field.message}}</span>
+    <label [class.hide]="info_form.value[field.id]">{{field.title}}</label>
   </div>
-  <button class="button">Continue</button>
+
+  <button class="button" type="submit" [disabled]="!info_form.valid">Continue</button>
 </form>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+
 import { FormService } from '../../services/form.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-information',
@@ -9,18 +12,53 @@ import { FormService } from '../../services/form.service';
 export class InformationComponent implements OnInit {
   plan;
   formFields;
-  constructor(private formServ: FormService) {
+  paymentMethod;
+
+  formGroup: {};
+
+  info_form: FormGroup;
+
+  constructor(private formServ: FormService, 
+              public formBuilder: FormBuilder,
+              private router: Router) {
+
     this.formServ.getFields();
+
     this.formServ.fields.subscribe(data => {
       this.formFields = data.fields;
+
+      this.formGroup = new Object;
+
+      this.formFields.forEach(el => {
+        let pattern;
+        if (el.validators) {
+          el.validators.forEach(val => val.pattern ? pattern = val.pattern: pattern = "[a-z]{1,15}");
+        } else {
+          pattern = "[a-z]{1,15}"
+        }
+        
+        if (el.id !== "paymentmethod") {
+          this.formGroup[el.id] = new FormControl('', Validators.compose([
+            Validators.required,
+            Validators.pattern(pattern)
+          ]))
+        } else {
+          this.formGroup[el.id] = new FormControl('', Validators.required)
+        }
+      });
+
+      this.info_form = this.formBuilder.group(this.formGroup);
     })
     this.formServ.selectPLan.subscribe(data => {
       this.plan = data;
-      console.log(this.plan)
     })
   }
 
   ngOnInit() {
   }
 
+  onSubmit(val) {
+    this.formServ.formFields.next(val);
+    this.router.navigateByUrl('products/billing');
+  }
 }

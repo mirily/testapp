@@ -4,9 +4,10 @@
       "id": "lastname",
       "title": "Last name",
       "type": "text",
+      "message": "Must be minimum 3 characters, maximum 30, with a capital letter",
       "validators": [
         {
-          "pattern": "/^([A-Z][A-Za-z ,.'`-]{3,30})$/g"
+          "pattern": "[A-Z][A-Za-z ,.'`-]{3,30}"
         }
       ]
     },
@@ -14,9 +15,10 @@
       "id": "firstname",
       "title": "First name",
       "type": "text",
+      "message": "Must be minimum 3 characters, maximum 30, with a capital letter",
       "validators": [
         {
-          "pattern": "/^([A-Z][A-Za-z ,.'`-]{3,30})$/g"
+          "pattern": "[A-Z][A-Za-z ,.'`-]{3,30}"
         }
       ]
     },
@@ -24,9 +26,10 @@
       "id": "email",
       "title": "E-mail",
       "type": "email",
+      "message": "Enter a valid email",
       "validators": [
         {
-          "pattern": ""
+          "pattern": "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
         }
       ]
     },
@@ -34,7 +37,12 @@
       "id": "phone",
       "title": "Phone",
       "type": "phone",
-      "validators": []
+      "message": "Must be 1-123-456-7890",
+      "validators": [
+        {
+          "pattern": "[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}"
+        }
+      ]
     },
     {
       "id": "paymentmethod",

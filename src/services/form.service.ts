@@ -11,6 +11,8 @@ export class FormService {
 
   public selectPLan:  ReplaySubject<any> = new ReplaySubject(1);
   
+  public formFields:  ReplaySubject<any> = new ReplaySubject(1);
+
   constructor(private api: ApiService) { }
 
   getPlans() {

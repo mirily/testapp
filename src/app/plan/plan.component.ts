@@ -11,7 +11,7 @@ export class PlanComponent implements OnInit {
   selectPlan;
   planList;
 
-  constructor(private formServ: FormService, private nav: Router) {
+  constructor(private formServ: FormService, private router: Router) {
     this.formServ.getPlans();
     this.formServ.plans.subscribe(data => {
       this.planList = data.plans;
@@ -26,6 +26,6 @@ export class PlanComponent implements OnInit {
   }
   nextStep() {
     this.formServ.selectPLan.next(this.selectPlan);
-    this.nav.navigateByUrl('products/information');
+    this.router.navigateByUrl('products/information');
   }
 }
