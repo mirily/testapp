@@ -4,19 +4,19 @@
       "title": "Beginner",
       "price": 10,
       "currency": "$",
-      "preview": "beginner.img"
+      "preview": "beginner.jpg"
     },
     {
       "title": "Intermediate",
       "price": 20,
       "currency": "$",
-      "preview": "intermediate.img"
+      "preview": "intermediate.jpg"
     },
     {
       "title": "Upper Intermediate",
       "price": 30,
       "currency": "$",
-      "preview": "upper_intermediate.img"
+      "preview": "upper_intermediate.jpg"
     }
   ]
 }

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as data from 'src/assets/information.json';
-
-const fields = (<any>data).fields;
+import { FormService } from '../../services/form.service';
 
 @Component({
   selector: 'app-information',
@@ -9,10 +7,17 @@ const fields = (<any>data).fields;
   styleUrls: ['./information.component.less']
 })
 export class InformationComponent implements OnInit {
+  plan;
   formFields;
-  constructor() {
-    this.formFields = fields;
-    console.log(fields);
+  constructor(private formServ: FormService) {
+    this.formServ.getFields();
+    this.formServ.fields.subscribe(data => {
+      this.formFields = data.fields;
+    })
+    this.formServ.selectPLan.subscribe(data => {
+      this.plan = data;
+      console.log(this.plan)
+    })
   }
 
   ngOnInit() {

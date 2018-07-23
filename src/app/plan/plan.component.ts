@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as data from 'src/assets/plans.json';
-
-const plans = (<any>data).plans;
+import { FormService } from '../../services/form.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-plan',
@@ -9,12 +8,24 @@ const plans = (<any>data).plans;
   styleUrls: ['./plan.component.less']
 })
 export class PlanComponent implements OnInit {
+  selectPlan;
   planList;
-  constructor() {
-    this.planList = plans;
+
+  constructor(private formServ: FormService, private nav: Router) {
+    this.formServ.getPlans();
+    this.formServ.plans.subscribe(data => {
+      this.planList = data.plans;
+    })
   }
 
   ngOnInit() {
   }
 
+  setPlan(plan) {
+    this.selectPlan = plan;
+  }
+  nextStep() {
+    this.formServ.selectPLan.next(this.selectPlan);
+    this.nav.navigateByUrl('products/information');
+  }
 }
