@@ -1,0 +1,33 @@
+.container {
+  width: 960px;
+  padding: 25px 30px;
+  border-top: 5px solid rgb(120,139,145);
+  background: rgb(243,243,243);
+}
+.tabs {
+  width: 100%;
+  list-style: none;
+  height: 40px;
+  display: flex;
+  color: #7b8d93;
+  font-size: 14px;
+  &-link {
+    width: ~"calc(100% / 3)";
+    background: rgb(207,216,220);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+      text-decoration: underline;
+    }
+    &.active {
+      background: rgb(87, 87, 87);
+      color: #fff;
+    }
+  }
+}
+.content {
+  padding: 20px 30px 30px;
+  background: rgb(229,229,232);
+  min-height: 545px;
+}

@@ -1,0 +1,38 @@
+.plan {
+  &-list {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  &-item {
+    width: 240px;
+    height: 240px;
+    background: rgb(207,216,220);
+    border-radius: 5px 5px 0 0;
+    &__img {
+      border-radius: 5px 5px 0 0;
+      height: 165px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &__context {
+      height: 75px;
+      background: rgb(120,139,145);
+      background-image: linear-gradient(to right, rgb(157,166,169), rgb(120,139,145));
+      padding: 20px 15px;
+      color: #fff;
+    }
+    &__price {
+      font-size: 14px;
+      line-height: 16px;
+    }
+    &.active .plan-item__img {
+      border: 3px solid rgb(172, 172, 172);
+      border-bottom: 0;
+    }
+  }
+}
+.button {
+  float: right;
+}
