@@ -36,3 +36,20 @@
 .button {
   float: right;
 }
+@media (max-width: 780px) {
+  .plan {
+    &-list {
+      flex-wrap: wrap;
+    }
+    &-item {
+      width: 100%;
+      margin-bottom: 30px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .button {
+    float: none;
+  }
+}

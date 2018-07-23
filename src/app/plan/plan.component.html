@@ -3,7 +3,11 @@
 </p>
 <div class="plan-list">
 
-  <div class="plan-item" *ngFor="let plan of planList" (click)="setPlan(plan)" [class.active]="selectPlan === plan">
+  <div class="plan-item" 
+    *ngFor="let plan of planList" 
+    (click)="setPlan(plan)" 
+    [class.active]="selectPlan === plan">
+
     <p class="plan-item__img" *ngIf="plan.preview">
       <img [src]="'assets/img/' + plan.preview">
     </p>
@@ -14,6 +18,7 @@
       <h3 class="h3">{{plan.title}}</h3>
       <span class="plan-item__price">{{plan.price + plan.currency}}</span>
     </div>
+    
   </div>
 
 </div>
