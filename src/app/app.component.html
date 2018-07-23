@@ -1,10 +1,10 @@
 <div class="container">
   <ul class="tabs">
-    <li class="tabs-link active">Choise plan</li>
-    <li class="tabs-link">Information</li>
-    <li class="tabs-link">Billing</li>
+    <li class="tabs-link" routerLink="products/plan" routerLinkActive="active">Choise plan</li>
+    <li class="tabs-link" routerLink="products/information" routerLinkActive="active">Information</li>
+    <li class="tabs-link" routerLink="products/billing" routerLinkActive="active">Billing</li>
   </ul>
   <div class="content">
-    <app-billing></app-billing>
+    <router-outlet></router-outlet>
   </div>
 </div>
