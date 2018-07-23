@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import * as data from 'src/assets/plans.json';
+
+const plans = (<any>data).plans;
 
 @Component({
   selector: 'app-plan',
@@ -6,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./plan.component.less']
 })
 export class PlanComponent implements OnInit {
-
-  constructor() { }
+  planList;
+  constructor() {
+    this.planList = plans;
+  }
 
   ngOnInit() {
   }

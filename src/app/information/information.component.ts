@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import * as data from 'src/assets/information.json';
+
+const fields = (<any>data).fields;
 
 @Component({
   selector: 'app-information',
@@ -6,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./information.component.less']
 })
 export class InformationComponent implements OnInit {
-
-  constructor() { }
+  formFields;
+  constructor() {
+    this.formFields = fields;
+    console.log(fields);
+  }
 
   ngOnInit() {
   }

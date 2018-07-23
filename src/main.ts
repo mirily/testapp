@@ -4,6 +4,11 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
+declare module '*.json' {
+  const value: any;
+  export default value;
+}
+
 if (environment.production) {
   enableProdMode();
 }

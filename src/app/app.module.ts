@@ -17,7 +17,7 @@ import { BillingComponent } from './billing/billing.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

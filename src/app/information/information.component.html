@@ -2,25 +2,12 @@
   Let's finish powering you up!
 </p>
 <form class="info-form">
-  <div class="input">
-    <input type="text">
-    <label>Last name</label>
+  <div class="input" *ngFor="let field of formFields" [class.select]="field.type === 'select'">
+    <label>{{field.title}}</label>
+    <input [type]="field.type" [id]="field.id" [readonly]="field.type === 'select'">
+    <div *ngIf="field.items" class="select-options">
+      <p *ngFor="let item of field.items">{{item.title}}</p>
+    </div>
   </div>
-  <div class="input">
-    <input type="text">
-    <label>First name</label>
-  </div>
-  <div class="input">
-    <input type="text">
-    <label>E-mail</label>
-  </div>
-  <div class="input">
-    <input type="text">
-    <label>Phone</label>
-  </div>
-  <select name="" id="" class="select">
-    <option value="">Val 1</option>
-    <option value="">Val 2</option>
-  </select>
   <button class="button">Continue</button>
 </form>
