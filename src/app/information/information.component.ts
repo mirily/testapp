@@ -49,9 +49,6 @@ export class InformationComponent implements OnInit {
 
       this.info_form = this.formBuilder.group(this.formGroup);
     })
-    this.formServ.selectPLan.subscribe(data => {
-      this.plan = data;
-    })
   }
 
   ngOnInit() {
